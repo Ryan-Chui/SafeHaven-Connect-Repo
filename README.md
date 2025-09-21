@@ -1,20 +1,73 @@
-## AWS Amplify React+Vite Starter Template
+# SafeHaven Connect
 
-This repository provides a starter template for creating applications using React+Vite and AWS Amplify, emphasizing easy setup for authentication, API, and database capabilities.
+**AWS Amplify-Ready Emergency Response Platform**
 
-## Overview
+SafeHaven Connect enables Emergency Shelters to share real-time needs with First Responders during emergencies when critical infrastructure is down.
 
-This template equips you with a foundational React application integrated with AWS Amplify, streamlined for scalability and performance. It is ideal for developers looking to jumpstart their project with pre-configured AWS services like Cognito, AppSync, and DynamoDB.
+## 🚀 Quick Deploy to AWS Amplify
+
+1. **One-Click Deploy**: Connect this repository to [AWS Amplify Console](https://console.aws.amazon.com/amplify/)
+2. **Automatic Setup**: Amplify will automatically configure:
+   - DynamoDB database
+   - GraphQL API with real-time sync
+   - React frontend with CDN
+   - CORS and authentication
+3. **Go Live**: Get a production URL in minutes
+
+👉 **[See detailed deployment instructions](DEPLOYMENT.md)**
+
+## Architecture
+
+- **Frontend**: React + TypeScript + Vite
+- **Backend**: AWS Amplify Gen 2 (GraphQL + DynamoDB)
+- **Real-time**: GraphQL subscriptions for live updates
+- **Hosting**: Amplify Hosting with global CDN
 
 ## Features
 
-- **Authentication**: Setup with Amazon Cognito for secure user authentication.
-- **API**: Ready-to-use GraphQL endpoint with AWS AppSync.
-- **Database**: Real-time database powered by Amazon DynamoDB.
+### Emergency Shelter Side
+- Update shelter capacity and needs (food, water, medical supplies, etc.)
+- View shelter information and location
+- Real-time status updates
 
-## Deploying to AWS
+### First Responder Side
+- View all shelter needs and status
+- Update shelter response status
+- Sort shelters by distance from current location
+- Real-time updates across all connected devices
 
-For detailed instructions on deploying your application, refer to the [deployment section](https://docs.amplify.aws/react/start/quickstart/#deploy-a-fullstack-app-to-aws) of our documentation.
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## Data Model
+
+**Shelters**:
+- Name, Location (coordinates + address)
+- Capacity (current/maximum)
+- Needs (food, water, medical supplies, blankets, clothing)
+- Status (no-action, acknowledged, in-progress, completed)
+- Other information
+
+**Users**:
+- Name, Type (shelter/responder)
+- Associated shelter (for shelter users)
+- Location (for responders)
+
+## Technology Stack
+
+- **React 18** with TypeScript
+- **AWS Amplify Gen 2** for backend
+- **DynamoDB** for data storage
+- **GraphQL** for API with real-time subscriptions
+- **Tailwind CSS** + **Radix UI** for styling
+- **Vite** for build tooling
 
 ## Security
 

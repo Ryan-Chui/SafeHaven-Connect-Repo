@@ -1,40 +1,29 @@
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
+import { AppProvider, useApp } from './contexts/AppContext';
+import { LandingPage } from './components/LandingPage';
+import { ShelterAuth } from './components/shelter/ShelterAuth';
+import { ShelterDashboard } from './components/shelter/ShelterDashboard';
+import { ResponderDashboard } from './components/responder/ResponderDashboard';
 
-const client = generateClient<Schema>();
+function AppContent() {
+  const { state } = useApp();
 
-function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
+  switch (state.currentSide) {
+    case 'shelter':
+      return state.currentUser?.type === 'SHELTER' ? <ShelterDashboard /> : <ShelterAuth />;
+    case 'responder':
+      return <ResponderDashboard />;
+    case 'landing':
+    default:
+      return <LandingPage />;
   }
-
-  return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
-    </main>
-  );
 }
 
-export default App;
+export default function App() {
+  return (
+    <AppProvider>
+      <div className="size-full">
+        <AppContent />
+      </div>
+    </AppProvider>
+  );
+}
