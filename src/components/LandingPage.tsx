@@ -81,7 +81,7 @@ export function LandingPage() {
 
         <div className="text-center mt-8">
           <p className="text-gray-500">
-            Data is stored locally in your browser. You can switch between portals without losing information.
+            Data is stored globally on AWS. You can switch between devices without losing information.
           </p>
         </div>
       </div>
