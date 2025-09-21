@@ -25,7 +25,7 @@ function mapShelterFromAmplify(amplifyData: any): Shelter {
       clothing: amplifyData.clothingNeed || 0,
       other: amplifyData.otherNeeds || ''
     },
-    status: amplifyData.status || 'no-action',
+    status: amplifyData.status || 'NO_ACTION',
     otherInformation: amplifyData.otherInformation || '',
     lastUpdated: amplifyData.lastUpdated
   };

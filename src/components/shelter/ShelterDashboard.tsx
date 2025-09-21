@@ -12,10 +12,10 @@ import { ArrowLeft, Building, Users, MapPin, AlertTriangle, Save } from 'lucide-
 
 // Fallback definitions in case import fails
 const LOCAL_STATUS_LABELS = {
-  'no-action': 'No Action Taken',
-  'acknowledged': 'Acknowledged',
-  'in-progress': 'In Progress',
-  'completed': 'Completed'
+  'NO_ACTION': 'No Action Taken',
+  'ACKNOWLEDGED': 'Acknowledged',
+  'IN_PROGRESS': 'In Progress',
+  'COMPLETED': 'Completed'
 } as const;
 
 const LOCAL_NEED_LABELS = {
@@ -93,10 +93,10 @@ export function ShelterDashboard() {
 
   const getStatusColor = (status: Shelter['status']) => {
     switch (status) {
-      case 'no-action': return 'bg-gray-500';
-      case 'acknowledged': return 'bg-yellow-500';
-      case 'in-progress': return 'bg-blue-500';
-      case 'completed': return 'bg-green-500';
+      case 'NO_ACTION': return 'bg-gray-500';
+      case 'ACKNOWLEDGED': return 'bg-yellow-500';
+      case 'IN_PROGRESS': return 'bg-blue-500';
+      case 'COMPLETED': return 'bg-green-500';
       default: return 'bg-gray-500';
     }
   };
@@ -132,8 +132,8 @@ export function ShelterDashboard() {
                 </div>
               </div>
             </div>
-            <Badge className={`${getStatusColor(currentShelter.status || 'no-action')} text-white`}>
-              {(STATUS_LABELS || LOCAL_STATUS_LABELS)[currentShelter.status || 'no-action']}
+            <Badge className={`${getStatusColor(currentShelter.status || 'NO_ACTION')} text-white`}>
+              {(STATUS_LABELS || LOCAL_STATUS_LABELS)[currentShelter.status || 'NO_ACTION']}
             </Badge>
           </div>
         </div>
@@ -194,8 +194,8 @@ export function ShelterDashboard() {
             </CardHeader>
             <CardContent>
               <div className="text-center">
-                <Badge className={`${getStatusColor(currentShelter.status || 'no-action')} text-white text-lg px-4 py-2`}>
-                  {(STATUS_LABELS || LOCAL_STATUS_LABELS)[currentShelter.status || 'no-action']}
+                <Badge className={`${getStatusColor(currentShelter.status || 'NO_ACTION')} text-white text-lg px-4 py-2`}>
+                  {(STATUS_LABELS || LOCAL_STATUS_LABELS)[currentShelter.status || 'NO_ACTION']}
                 </Badge>
                 <p className="text-gray-600 mt-2 text-sm">
                   Last updated: {new Date(currentShelter.lastUpdated).toLocaleString()}

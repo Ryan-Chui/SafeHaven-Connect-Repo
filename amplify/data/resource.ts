@@ -15,7 +15,7 @@ const schema = a.schema({
       blanketsNeed: a.integer().required(),
       clothingNeed: a.integer().required(),
       otherNeeds: a.string(),
-      status: a.enum(['no-action', 'acknowledged', 'in-progress', 'completed']),
+      status: a.enum(['NO_ACTION', 'ACKNOWLEDGED', 'IN_PROGRESS', 'COMPLETED']),
       otherInformation: a.string(),
       lastUpdated: a.datetime(),
     })
@@ -24,7 +24,7 @@ const schema = a.schema({
   User: a
     .model({
       name: a.string().required(),
-      type: a.enum(['shelter', 'responder']),
+      type: a.enum(['SHELTER', 'RESPONDER']),
       shelterId: a.id(),
       latitude: a.float(),
       longitude: a.float(),

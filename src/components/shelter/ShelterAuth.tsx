@@ -34,7 +34,7 @@ export function ShelterAuth() {
     const user: User = {
       id: Date.now().toString(),
       name: formData.userName || 'Shelter User',
-      type: 'shelter',
+      type: 'SHELTER',
       shelterId: shelterId
     };
 
@@ -97,7 +97,7 @@ export function ShelterAuth() {
         clothing: 0,
         other: ''
       },
-      status: 'no-action',
+      status: 'NO_ACTION',
       otherInformation: formData.otherInformation,
       lastUpdated: new Date().toISOString()
     };
@@ -105,7 +105,7 @@ export function ShelterAuth() {
     const user: User = {
       id: Date.now().toString(),
       name: formData.userName || 'Shelter User',
-      type: 'shelter',
+      type: 'SHELTER',
       shelterId: shelterId
     };
 

@@ -30,7 +30,7 @@ export async function testBackendIntegration(): Promise<boolean> {
         clothing: 1,
         other: 'Baby formula needed'
       },
-      status: 'no-action',
+      status: 'NO_ACTION',
       otherInformation: 'Test shelter for backend integration',
       lastUpdated: new Date().toISOString()
     };
@@ -43,7 +43,7 @@ export async function testBackendIntegration(): Promise<boolean> {
     const testUser: User = {
       id: 'test-user-' + Date.now(),
       name: 'Test Responder',
-      type: 'responder',
+      type: 'RESPONDER',
       location: {
         latitude: 40.7589,
         longitude: -73.9851
@@ -62,7 +62,7 @@ export async function testBackendIntegration(): Promise<boolean> {
 
     // Test 4: Update shelter status
     console.log('🔄 Updating shelter status...');
-    await api.updateShelterStatus(createdShelter.id, 'acknowledged');
+    await api.updateShelterStatus(createdShelter.id, 'ACKNOWLEDGED');
     console.log('✅ Shelter status updated');
 
     // Test 5: Fetch all users

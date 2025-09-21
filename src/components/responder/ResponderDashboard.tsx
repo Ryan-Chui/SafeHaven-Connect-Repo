@@ -13,10 +13,10 @@ import { geocodeAddress } from '../../utils/geocoding';
 
 // Fallback definitions in case import fails
 const LOCAL_STATUS_LABELS = {
-  'no-action': 'No Action Taken',
-  'acknowledged': 'Acknowledged',
-  'in-progress': 'In Progress',
-  'completed': 'Completed'
+  'NO_ACTION': 'No Action Taken',
+  'ACKNOWLEDGED': 'Acknowledged',
+  'IN_PROGRESS': 'In Progress',
+  'COMPLETED': 'Completed'
 } as const;
 
 const LOCAL_NEED_LABELS = {
@@ -90,7 +90,7 @@ export function ResponderDashboard() {
     const user: User = {
       id: currentUser?.id || Date.now().toString(),
       name: responderName || 'First Responder',
-      type: 'responder',
+      type: 'RESPONDER',
       location: location,
       address: responderAddress || undefined // Store the address if provided
     };
@@ -129,10 +129,10 @@ export function ResponderDashboard() {
 
   const getStatusColor = (status: Shelter['status']) => {
     switch (status) {
-      case 'no-action': return 'bg-gray-500';
-      case 'acknowledged': return 'bg-yellow-500';
-      case 'in-progress': return 'bg-blue-500';
-      case 'completed': return 'bg-green-500';
+      case 'NO_ACTION': return 'bg-gray-500';
+      case 'ACKNOWLEDGED': return 'bg-yellow-500';
+      case 'IN_PROGRESS': return 'bg-blue-500';
+      case 'COMPLETED': return 'bg-green-500';
       default: return 'bg-gray-500';
     }
   };
@@ -317,8 +317,8 @@ export function ResponderDashboard() {
                                   {shelter.distance} miles
                                 </Badge>
                               )}
-                              <Badge className={`${getStatusColor(shelter.status || 'no-action')} text-white`}>
-                                {(STATUS_LABELS || LOCAL_STATUS_LABELS)[shelter.status || 'no-action']}
+                              <Badge className={`${getStatusColor(shelter.status || 'NO_ACTION')} text-white`}>
+                                {(STATUS_LABELS || LOCAL_STATUS_LABELS)[shelter.status || 'NO_ACTION']}
                               </Badge>
                             </div>
                           </div>
@@ -367,10 +367,10 @@ export function ResponderDashboard() {
                               <SelectValue />
                             </SelectTrigger>
                             <SelectContent>
-                              <SelectItem value="no-action">No Action</SelectItem>
-                              <SelectItem value="acknowledged">Acknowledged</SelectItem>
-                              <SelectItem value="in-progress">In Progress</SelectItem>
-                              <SelectItem value="completed">Completed</SelectItem>
+                              <SelectItem value="NO_ACTION">No Action</SelectItem>
+                              <SelectItem value="ACKNOWLEDGED">Acknowledged</SelectItem>
+                              <SelectItem value="IN_PROGRESS">In Progress</SelectItem>
+                              <SelectItem value="COMPLETED">Completed</SelectItem>
                             </SelectContent>
                           </Select>
                           <p className="text-xs text-gray-500 mt-1">

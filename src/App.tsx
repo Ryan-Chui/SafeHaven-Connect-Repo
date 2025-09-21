@@ -9,7 +9,7 @@ function AppContent() {
 
   switch (state.currentSide) {
     case 'shelter':
-      return state.currentUser?.type === 'shelter' ? <ShelterDashboard /> : <ShelterAuth />;
+      return state.currentUser?.type === 'SHELTER' ? <ShelterDashboard /> : <ShelterAuth />;
     case 'responder':
       return <ResponderDashboard />;
     case 'landing':

@@ -18,7 +18,7 @@ export interface Shelter {
     clothing: number;
     other: string;
   };
-  status: 'no-action' | 'acknowledged' | 'in-progress' | 'completed';
+  status: 'NO_ACTION' | 'ACKNOWLEDGED' | 'IN_PROGRESS' | 'COMPLETED';
   otherInformation: string;
   lastUpdated: string;
 }
@@ -26,7 +26,7 @@ export interface Shelter {
 export interface User {
   id: string;
   name: string;
-  type: 'shelter' | 'responder';
+  type: 'SHELTER' | 'RESPONDER';
   shelterId?: string; // Only for shelter users
   location?: {
     latitude: number;
@@ -54,8 +54,8 @@ export const NEED_LABELS: Record<NeedLevel, string> = {
 };
 
 export const STATUS_LABELS: Record<Shelter['status'], string> = {
-  'no-action': 'No Action Taken',
-  'acknowledged': 'Acknowledged',
-  'in-progress': 'In Progress',
-  'completed': 'Completed'
+  'NO_ACTION': 'No Action Taken',
+  'ACKNOWLEDGED': 'Acknowledged',
+  'IN_PROGRESS': 'In Progress',
+  'COMPLETED': 'Completed'
 };

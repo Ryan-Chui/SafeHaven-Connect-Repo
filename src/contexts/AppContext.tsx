@@ -50,7 +50,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
       // Ensure shelter has a valid status
       const shelterWithStatus = {
         ...action.payload,
-        status: action.payload.status || 'no-action'
+        status: action.payload.status || 'NO_ACTION'
       };
       return { ...state, shelters: [...state.shelters, shelterWithStatus] };
     
@@ -81,7 +81,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
         ...action.payload,
         shelters: action.payload.shelters.map((shelter: any) => ({
           ...shelter,
-          status: shelter.status || 'no-action'
+          status: shelter.status || 'NO_ACTION'
         }))
       };
       return stateWithValidShelters;
